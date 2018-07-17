@@ -189,8 +189,7 @@ check_for_finished_nodes () {
   finished_count=0
 
   # Increment a count for all nodes that are status="finished"
-  for status_key in "${status_keys_array[@]}"
-  do
+  for status_key in "${status_keys_array[@]}"; do
       status=$(curl -s "${CONSUL_ADDR}/v1/kv/${status_key}?raw")
 
       if [[ ${status} == "${STATUS_FINISHED}" ]]; then
@@ -204,8 +203,7 @@ check_for_finished_nodes () {
     echo "${msg}"
 
     # Reset all nodes back to "available" status
-    for status_key in "${status_keys_array[@]}"
-    do
+    for status_key in "${status_keys_array[@]}"; do
       ret="$(curl -s -X PUT -d "${STATUS_AVAILABLE}" "${CONSUL_ADDR}/v1/kv/${status_key}")"
       if [[ "${ret}" != "true" ]]; then
           echo "${status_key} did not updated to be available"
