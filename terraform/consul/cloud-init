@@ -1,0 +1,20 @@
+#cloud-config
+
+coreos:
+  units:
+    - name: consul.service
+      command: start
+      enable: true
+      content: |
+        [Unit]
+        Requires=docker.service
+        After=docker.service
+        Description=consul
+        [Service]
+        ExecStartPre=-/usr/bin/docker kill dev-consul
+        ExecStartPre=-/usr/bin/docker rm dev-consul
+        ExecStart=/usr/bin/docker run --name=dev-consul --net=host -e CONSUL_BIND_INTERFACE=eth0 consul
+        ExecStop=-/usr/bin/docker stop dev-consul
+        ExecStopPost=-/usr/bin/docker rm dev-consul
+        [Install]
+        WantedBy=local.target
