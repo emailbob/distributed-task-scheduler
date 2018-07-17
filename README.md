@@ -26,8 +26,9 @@ behind that to make it highly available.
 
 ## Quick start
 
-To change the AWS region and Coreos AMI image edit
-`terraform/modules/global_variables/vars.tf`. Default is set to "us-east-2"
+To change the AWS region and Coreos AMI image edit.
+`terraform/modules/global_variables/vars.tf`. If you change the region you
+will have to update the Coreos AMI image to match. Default region is set to "us-east-2"
 
 Edit the file `terraform/nodes/vars.tf` to configure the service:
 - Server name
@@ -45,7 +46,7 @@ up the infrastructure
 ```
 
 The script will create a new VPC, a Consul instance, and a number of nodes.  They
-are separated in Terraform so you can bring up each set of infustructure for testing.
+are separated in Terraform so you can bring up each set of infrastructure for testing.
 
 ## Clean up
 To tear everything down run
@@ -53,7 +54,7 @@ To tear everything down run
 ./scripts/cleanup.sh
 ```
 
-## Debuging
+## Debugging
 To view or debug the service log into any of the CoreOS nodes
 
 ```
