@@ -7,7 +7,7 @@ variable "server_name" {
 variable "node_count" {
   description = "The number of nodes initially provisioned"
   type        = "string"
-  default     = "2"
+  default     = "10"
 }
 
 variable "instance_type" {
