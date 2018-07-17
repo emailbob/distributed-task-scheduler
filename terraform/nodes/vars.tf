@@ -7,7 +7,7 @@ variable "server_name" {
 variable "node_count" {
   description = "The number of nodes initially provisioned"
   type        = "string"
-  default     = "10"
+  default     = "2"
 }
 
 variable "instance_type" {
@@ -23,9 +23,9 @@ variable "task_id" {
 }
 
 variable "task_period" {
-  description = "How often the istributed task should run in seconds"
+  description = "How often the distributed task should run in seconds"
   type        = "string"
-  default     = "70"
+  default     = "3600"
 }
 
 variable "task_command" {
@@ -34,10 +34,16 @@ variable "task_command" {
   default     = "/usr/bin/touch worked"
 }
 
+variable "timer_mins" {
+  description = "How often the task service should check if a task can be run in minutes"
+  type        = "string"
+  default     = "10"
+}
+
 variable "slack_webhook" {
   description = "Slack webhook to post tasks status"
   type        = "string"
-  default     = "https://hooks.slack.com/services/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"
+  default     = "https://hooks.slack.com/services/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" #<- throw away slack webhook
 }
 
 variable "datadog_api_key" {

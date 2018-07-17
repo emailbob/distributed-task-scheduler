@@ -64,6 +64,6 @@ coreos:
         [Timer]
         Persistent=true
         # every 15 mins *:0/15
-        OnCalendar=*:0/1
+        OnCalendar=*:0/${timer_mins}
         [Install]
         WantedBy=multi-user.target

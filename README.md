@@ -36,6 +36,7 @@ Edit the file `terraform/nodes/vars.tf` to configure the service:
 - Instance type
 - Task period
 - Task command
+- Timer mins
 - Slack Webhook
 - DataDog API Key
 

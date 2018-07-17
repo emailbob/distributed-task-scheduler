@@ -65,6 +65,7 @@ data "template_file" "cloud_init" {
     task_id             = "${var.task_id}"
     task_period         = "${var.task_period}"
     task_command        = "${var.task_command}"
+    timer_mins          = "${var.timer_mins}"
     slack_webhook       = "${var.slack_webhook}"
     datadog_api_key     = "${var.datadog_api_key}"
     COREOS_PRIVATE_IPV4 = "$${COREOS_PRIVATE_IPV4}"
